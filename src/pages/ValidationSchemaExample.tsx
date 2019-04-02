@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Field } from "formik";
-import { Row } from "react-bootstrap";
+import { Row, Container, Form, Button } from "react-bootstrap";
 import * as Yup from "yup";
 
 const SignupSchema = Yup.object().shape({
@@ -26,7 +26,7 @@ const ValidationSchemaExample = () => {
     setFirstName("Elton");
     setLastName("Tanamati");
     setEmail("elton.tanamati@email.com.br");
-  });
+  }, []);
 
   const onSubmitForm = (values: State) => {
     console.log({ values });
@@ -34,7 +34,7 @@ const ValidationSchemaExample = () => {
 
   return (
     <div>
-      <h1>Signup</h1>
+      <h1>Login</h1>
       <Formik
         enableReinitialize
         initialValues={{
@@ -45,27 +45,32 @@ const ValidationSchemaExample = () => {
         validationSchema={() => SignupSchema}
         onSubmit={onSubmitForm}
         render={({ errors, touched, submitForm }) => (
-          <div>
-            <Row>
-              <Field name="firstName" />
-              {errors.firstName && touched.firstName ? (
-                <div>{errors.firstName}</div>
-              ) : null}
-            </Row>
-            <Row>
-              <Field name="lastName" />
-              {errors.lastName && touched.lastName ? (
-                <div>{errors.lastName}</div>
-              ) : null}
-            </Row>
-            <Row>
-              <Field name="email" type="email" />
-              {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            </Row>
-            <button onClick={submitForm} type="submit">
-              Submit
-            </button>
-          </div>
+          <Container>
+            <Form>
+              <Row>
+                <Field name="firstName" />
+                {errors.firstName && touched.firstName ? (
+                  <div>{errors.firstName}</div>
+                ) : null}
+              </Row>
+              <Row>
+                <Field name="lastName" />
+                {errors.lastName && touched.lastName ? (
+                  <div>{errors.lastName}</div>
+                ) : null}
+              </Row>
+              <Row>
+                <Field name="email" type="email" />
+                {errors.email && touched.email ? (
+                  <div>{errors.email}</div>
+                ) : null}
+              </Row>
+
+              <Button variant="success" onClick={submitForm}>
+                Login
+              </Button>
+            </Form>
+          </Container>
         )}
       />
     </div>
