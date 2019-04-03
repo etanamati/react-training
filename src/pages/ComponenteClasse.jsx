@@ -1,16 +1,8 @@
 import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { getDadosUsuario } from "../services/Service";
 
-type State = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  [index: string]: string;
-};
-
-type Props = {};
-
-class ComponenteClasse extends React.Component<Props, State> {
+class ComponenteClasse extends React.Component {
   state = {
     firstName: "",
     lastName: "",
@@ -18,20 +10,10 @@ class ComponenteClasse extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    const requestMock: Promise<State> = new Promise<State>(
-      (resolve, reject) => {
-        resolve({
-          firstName: "Nome",
-          lastName: "Sobrenome",
-          email: "nome.sobrenome@gmail.com"
-        });
-      }
-    );
-
-    requestMock.then(data => this.setState({ ...data }));
+    getDadosUsuario().then(data => this.setState({ ...data }));
   }
 
-  onChange = (event: any) => {
+  onChange = event => {
     const { value, name } = event.target;
     this.setState({
       [name]: value

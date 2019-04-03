@@ -20,15 +20,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "plugins": [
-    "react-hooks"
-  ],
-  "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
-  },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "plugins": ["react-hooks"],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn" 
+    }
   },
   "browserslist": [
     ">0.2%",

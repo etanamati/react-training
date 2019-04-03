@@ -1,31 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { getDadosUsuario } from "../services/Service";
 
-type State = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  [index: string]: string;
-};
-
-type Props = {};
-
-const ComponenteHooks = () => {
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+const Hooks = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
-    const requestMock: Promise<State> = new Promise<State>(
-      (resolve, reject) => {
-        resolve({
-          firstName: "Nome",
-          lastName: "Sobrenome",
-          email: "nome.sobrenome@gmail.com"
-        });
-      }
-    );
-    requestMock.then(data => {
+    getDadosUsuario().then(data => {
       setFirstName(data.firstName);
       setLastName(data.lastName);
       setEmail(data.email);
@@ -40,7 +23,7 @@ const ComponenteHooks = () => {
           <Form.Control
             name="firstName"
             value={firstName}
-            onChange={(e: any) => setFirstName(e.target.value)}
+            onChange={e => setFirstName(e.target.value)}
             size="sm"
           />
         </Form.Group>
@@ -49,7 +32,7 @@ const ComponenteHooks = () => {
           <Form.Control
             name="lastName"
             value={lastName}
-            onChange={(e: any) => setLastName(e.target.value)}
+            onChange={e => setLastName(e.target.value)}
           />
         </Form.Group>
         <Form.Group>
@@ -57,7 +40,7 @@ const ComponenteHooks = () => {
           <Form.Control
             name="email"
             value={email}
-            onChange={(e: any) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
         </Form.Group>
         <Button
@@ -71,4 +54,4 @@ const ComponenteHooks = () => {
   );
 };
 
-export default ComponenteHooks;
+export default Hooks;

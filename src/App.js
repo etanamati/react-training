@@ -4,6 +4,7 @@ import "./App.css";
 import ValidationSchemaExample from "./pages/ValidationSchemaExample";
 import ComponenteClasse from "./pages/ComponenteClasse";
 import ComponenteHooks from "./pages/ComponenteHooks";
+import CustomHooks from "./pages/CustomHooks";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Route path="/" exact component={ValidationSchemaExample} />
           <Route path="/componente-classe" exact component={ComponenteClasse} />
           <Route path="/componente-hooks" exact component={ComponenteHooks} />
+          <Route path="/custom-hooks" exact component={CustomHooks} />
         </Switch>
       </div>
     );
