@@ -5,8 +5,7 @@ import { getDadosUsuario } from "../services/Service";
 class ComponenteClasse extends React.Component {
   state = {
     firstName: "",
-    lastName: "",
-    email: ""
+    lastName: ""
   };
 
   componentDidMount() {
@@ -25,7 +24,7 @@ class ComponenteClasse extends React.Component {
   };
 
   render() {
-    const { firstName, lastName, email } = this.state;
+    const { firstName, lastName } = this.state;
 
     return (
       <Container title="Class Component">
@@ -46,10 +45,6 @@ class ComponenteClasse extends React.Component {
               value={lastName}
               onChange={this.onChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Email</Form.Label>
-            <Form.Control name="email" value={email} onChange={this.onChange} />
           </Form.Group>
           <Button variant="success" onClick={this.onSave}>
             Salvar

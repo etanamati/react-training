@@ -5,13 +5,11 @@ import { getDadosUsuario } from "../services/Service";
 const Hooks = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
 
   useEffect(() => {
     getDadosUsuario().then(data => {
       setFirstName(data.firstName);
       setLastName(data.lastName);
-      setEmail(data.email);
     });
   }, []);
 
@@ -35,17 +33,9 @@ const Hooks = () => {
             onChange={e => setLastName(e.target.value)}
           />
         </Form.Group>
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            name="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </Form.Group>
         <Button
           variant="success"
-          onClick={() => console.log({ firstName, lastName, email })}
+          onClick={() => console.log({ firstName, lastName })}
         >
           Salvar
         </Button>

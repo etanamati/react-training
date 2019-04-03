@@ -3,8 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import ValidationSchemaExample from "./pages/ValidationSchemaExample";
 import ComponenteClasse from "./pages/ComponenteClasse";
-import ComponenteHooks from "./pages/ComponenteHooks";
+import Hooks from "./pages/Hooks";
 import CustomHooks from "./pages/CustomHooks";
+import UseStateExample from './pages/UseStateExample';
+import UseEffectExample from './pages/UseEffectExample';
 
 class App extends Component {
   render() {
@@ -13,8 +15,10 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={ValidationSchemaExample} />
           <Route path="/componente-classe" exact component={ComponenteClasse} />
-          <Route path="/componente-hooks" exact component={ComponenteHooks} />
+          <Route path="/hooks" exact component={Hooks} />
           <Route path="/custom-hooks" exact component={CustomHooks} />
+          <Route path="/use-state" exact component={UseStateExample} />
+          <Route path="/use-effect" exact component={UseEffectExample} />
         </Switch>
       </div>
     );
