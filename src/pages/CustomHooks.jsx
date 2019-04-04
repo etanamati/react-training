@@ -7,11 +7,9 @@ const Hooks = () => {
   const lastName = useFormInput("Sobrenome");
   const email = useFormInput("nome.sobrenome@teste.com");
 
+  useEffect(() => {});
+
   useEffect(() => {
-    console.log("effect 1");
-  });
-  useEffect(() => {
-    console.log("effect 2");
     getDadosUsuario().then(data => {
       firstName.setValue(data.firstName);
       lastName.setValue(data.lastName);

@@ -1,16 +1,11 @@
 import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { getDadosUsuario } from "../services/Service";
 
-class ComponenteClasse extends React.Component {
+class ExemploState extends React.Component {
   state = {
-    firstName: "",
-    lastName: ""
+    nome: "",
+    sobrenome: ""
   };
-
-  componentDidMount() {
-    getDadosUsuario().then(data => this.setState({ ...data }));
-  }
 
   onChange = event => {
     const { value, name } = event.target;
@@ -24,7 +19,7 @@ class ComponenteClasse extends React.Component {
   };
 
   render() {
-    const { firstName, lastName } = this.state;
+    const { nome, sobrenome } = this.state;
 
     return (
       <Container title="Class Component">
@@ -32,8 +27,8 @@ class ComponenteClasse extends React.Component {
           <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control
-              name="firstName"
-              value={firstName}
+              name="nome"
+              value={nome}
               onChange={this.onChange}
               size="sm"
             />
@@ -41,8 +36,8 @@ class ComponenteClasse extends React.Component {
           <Form.Group>
             <Form.Label>Sobrenome</Form.Label>
             <Form.Control
-              name="lastName"
-              value={lastName}
+              name="sobrenome"
+              value={sobrenome}
               onChange={this.onChange}
             />
           </Form.Group>
@@ -55,4 +50,4 @@ class ComponenteClasse extends React.Component {
   }
 }
 
-export default ComponenteClasse;
+export default ExemploState;

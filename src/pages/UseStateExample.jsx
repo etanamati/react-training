@@ -1,17 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import { Container, Row } from "react-bootstrap";
 
 const UseStateExample = () => {
-  const [nome, setNome] = useState('Teste');
+  const [state, setState] = useState({ nome: "", sobrenome: "" });
 
   const handleChange = event => {
-    setNome(event.target.value);
-  }
+    const { name, value } = event.target;
+
+    setState({ [name]: value });
+  };
 
   return (
-    <div>
-      <input name="nome" value={nome} onChange={handleChange} />
-    </div>
+    <Container>
+      <Row>
+        <input name="nome" value={state.nome} onChange={handleChange} />
+      </Row>
+      <Row>
+        <input
+          name="sobrenome"
+          value={state.sobrenome}
+          onChange={handleChange}
+        />
+      </Row>
+    </Container>
   );
-}
+};
 
 export default UseStateExample;
