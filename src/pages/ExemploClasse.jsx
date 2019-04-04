@@ -4,8 +4,8 @@ import { getDadosUsuario } from "../services/Service";
 
 class ExemploClasse extends React.Component {
   state = {
-    firstName: "",
-    lastName: ""
+    nome: "",
+    sobrenome: ""
   };
 
   componentDidMount() {
@@ -19,12 +19,8 @@ class ExemploClasse extends React.Component {
     });
   };
 
-  onSave = () => {
-    console.log(this.state);
-  };
-
   render() {
-    const { firstName, lastName } = this.state;
+    const { nome, sobrenome } = this.state;
 
     return (
       <Container title="Class Component">
@@ -32,21 +28,21 @@ class ExemploClasse extends React.Component {
           <Form.Group>
             <Form.Label>Nome</Form.Label>
             <Form.Control
-              name="firstName"
-              value={firstName}
-              onChange={this.onChange}
+              name="nome"
+              value={nome}
+              onChange={(e) => this.setState({nome: e.target.value})}
               size="sm"
             />
           </Form.Group>
           <Form.Group>
             <Form.Label>Sobrenome</Form.Label>
             <Form.Control
-              name="lastName"
-              value={lastName}
-              onChange={this.onChange}
+              name="sobrenome"
+              value={sobrenome}
+              onChange={(e) => this.setState({sobrenome: e.target.value})}
             />
           </Form.Group>
-          <Button variant="success" onClick={this.onSave}>
+          <Button variant="success" onClick={() => console.log(this.state)}>
             Salvar
           </Button>
         </Form>

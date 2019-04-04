@@ -21,13 +21,6 @@ class ExemploEffect extends React.Component {
     window.removeEventListener("resize", this.handleResize());
   }
 
-  handleChange = event => {
-    const { value, name } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
   handleResize = () => {
     this.setState({
       width: window.innerWidth
@@ -46,7 +39,7 @@ class ExemploEffect extends React.Component {
             <Form.Control
               name="nome"
               value={nome}
-              onChange={this.handleChange}
+              onChange={(e) => this.setState({nome: e.target.value})}
               size="sm"
             />
           </Form.Group>
@@ -55,7 +48,7 @@ class ExemploEffect extends React.Component {
             <Form.Control
               name="sobrenome"
               value={sobrenome}
-              onChange={this.handleChange}
+              onChange={(e) => this.setState({sobrenome: e.target.value})}
             />
           </Form.Group>
           <Button variant="success" onClick={() => {}}>

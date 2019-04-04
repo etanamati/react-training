@@ -7,13 +7,6 @@ class ExemploState extends React.Component {
     sobrenome: ""
   };
 
-  onChange = event => {
-    const { value, name } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
   render() {
     const { nome, sobrenome } = this.state;
 
@@ -25,7 +18,7 @@ class ExemploState extends React.Component {
             <Form.Control
               name="nome"
               value={nome}
-              onChange={this.onChange}
+              onChange={(e) => this.setState({nome: e.target.value})}
               size="sm"
             />
           </Form.Group>
@@ -34,7 +27,7 @@ class ExemploState extends React.Component {
             <Form.Control
               name="sobrenome"
               value={sobrenome}
-              onChange={this.onChange}
+              onChange={(e) => this.setState({sobrenome: e.target.value})}
             />
           </Form.Group>
           <Button variant="success" onClick={() => {}}>
