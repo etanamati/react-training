@@ -14,10 +14,6 @@ class ExemploState extends React.Component {
     });
   };
 
-  onSave = () => {
-    console.log(this.state);
-  };
-
   render() {
     const { nome, sobrenome } = this.state;
 
@@ -41,7 +37,7 @@ class ExemploState extends React.Component {
               onChange={this.onChange}
             />
           </Form.Group>
-          <Button variant="success" onClick={this.onSave}>
+          <Button variant="success" onClick={() => {}}>
             Salvar
           </Button>
         </Form>

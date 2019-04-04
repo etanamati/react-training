@@ -34,10 +34,6 @@ class ExemploEffect extends React.Component {
     });
   };
 
-  onSave = () => {
-    console.log(this.state);
-  };
-
   render() {
     const { width, nome, sobrenome } = this.state;
 
@@ -62,7 +58,7 @@ class ExemploEffect extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant="success" onClick={this.onSave}>
+          <Button variant="success" onClick={() => {}}>
             Salvar
           </Button>
         </Form>
