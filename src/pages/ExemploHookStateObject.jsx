@@ -14,6 +14,7 @@ const ExemploHookStateObject = () => {
     const { name, value } = event.target;
     setState(prev => {
       return {
+        ...prev,
         [name]: value
       };
     });

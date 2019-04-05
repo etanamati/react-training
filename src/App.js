@@ -18,14 +18,14 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path="/" exact component={ValidationSchemaExample} />
-          <Route path="/classe" exact component={ExemploClasse} />
-          <Route path="/state" exact component={ExemploState} />
+          <Route path="/exemplo-classe" exact component={ExemploClasse} />
+          <Route path="/exemplo-state" exact component={ExemploState} />
           <Route
             path="/state-object"
             exact
             component={ExemploHookStateObject}
           />
-          <Route path="/effect" exact component={ExemploEffect} />
+          <Route path="/exemplo-effect" exact component={ExemploEffect} />
           <Route path="/hooks" exact component={Hooks} />
           <Route path="/custom-hooks" exact component={CustomHooks} />
           <Route path="/custom-fetch" exact component={CustomHooksFetchData} />
