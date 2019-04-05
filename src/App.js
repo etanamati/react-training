@@ -7,9 +7,11 @@ import CustomHooksFetchData from "./pages/CustomHooksFetchData";
 import ExemploClasse from "./pages/ExemploClasse";
 import ExemploState from "./pages/ExemploState";
 import ExemploEffect from "./pages/ExemploEffect";
+import ExemploHookStateObject from "./pages/ExemploHookStateObject";
 import Hooks from "./pages/Hooks";
 import UseStateExample from "./pages/UseStateExample";
 import UseEffectExample from "./pages/UseEffectExample";
+
 class App extends Component {
   render() {
     return (
@@ -18,6 +20,11 @@ class App extends Component {
           <Route path="/" exact component={ValidationSchemaExample} />
           <Route path="/classe" exact component={ExemploClasse} />
           <Route path="/state" exact component={ExemploState} />
+          <Route
+            path="/state-object"
+            exact
+            component={ExemploHookStateObject}
+          />
           <Route path="/effect" exact component={ExemploEffect} />
           <Route path="/hooks" exact component={Hooks} />
           <Route path="/custom-hooks" exact component={CustomHooks} />
