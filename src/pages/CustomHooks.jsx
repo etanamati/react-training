@@ -7,15 +7,17 @@ const Hooks = () => {
   const lastName = useFormInput("Sobrenome");
   const email = useFormInput("nome.sobrenome@teste.com");
 
-  useEffect(() => {});
-
   useEffect(() => {
+    console.log("Executa a cada render");
+  });
+
+  useDidMount(() => {
     getDadosUsuario().then(data => {
       firstName.setValue(data.firstName);
       lastName.setValue(data.lastName);
       email.setValue(data.email);
     });
-  }, []);
+  });
 
   return (
     <Container title="Hooks">
@@ -42,6 +44,10 @@ const Hooks = () => {
     </Container>
   );
 };
+
+function useDidMount(callBack) {
+  useEffect(callBack(), []);
+}
 
 function useFormInput(initialValue) {
   const [value, setValue] = useState(initialValue);
