@@ -3,8 +3,8 @@ import { Button, Container, Form } from "react-bootstrap";
 import { getDadosUsuario } from "../services/Service";
 
 const Hooks = () => {
-  const firstName = useFormInput("Nome");
-  const lastName = useFormInput("Sobrenome");
+  const nome = useFormInput("Nome");
+  const sobrenome = useFormInput("Sobrenome");
   const email = useFormInput("nome.sobrenome@teste.com");
 
   useEffect(() => {
@@ -13,8 +13,8 @@ const Hooks = () => {
 
   useDidMount(() => {
     getDadosUsuario().then(data => {
-      firstName.setValue(data.firstName);
-      lastName.setValue(data.lastName);
+      nome.setValue(data.nome);
+      sobrenome.setValue(data.sobrenome);
       email.setValue(data.email);
     });
   });
@@ -24,11 +24,11 @@ const Hooks = () => {
       <Form>
         <Form.Group>
           <Form.Label>Nome</Form.Label>
-          <Form.Control {...firstName} size="sm" />
+          <Form.Control {...nome} size="sm" />
         </Form.Group>
         <Form.Group>
           <Form.Label>Sobrenome</Form.Label>
-          <Form.Control {...lastName} />
+          <Form.Control {...sobrenome} />
         </Form.Group>
         <Form.Group>
           <Form.Label>Email</Form.Label>
@@ -36,7 +36,7 @@ const Hooks = () => {
         </Form.Group>
         <Button
           variant="success"
-          onClick={() => console.log({ firstName, lastName, email })}
+          onClick={() => console.log({ nome, sobrenome, email })}
         >
           Salvar
         </Button>
@@ -46,7 +46,7 @@ const Hooks = () => {
 };
 
 function useDidMount(callBack) {
-  useEffect(callBack(), []);
+  useEffect(callBack, []);
 }
 
 function useFormInput(initialValue) {
